@@ -30,7 +30,7 @@ namespace mtg_lite.Models.Cards
                 case "mountain":
                     return new Land("mountain", new Mana(0, 0, 0, 0, 0, 0), Resource.mountain);
                 case "forest":
-                    return new Land("mountain", new Mana(0, 0, 0, 0, 0, 0), Resource.forest);
+                    return new Land("forest", new Mana(0, 0, 0, 0, 0, 0), Resource.forest);
                 default:
                     return new Land("swamp", new Mana(0, 0, 0, 0, 0, 0), Resource.swamp);
 
