@@ -56,6 +56,12 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
+            manaColors[ManaBlack.Name].Remove(manaToPay.Black);
+            manaColors[ManaBlue.Name].Remove(manaToPay.Blue);
+            manaColors[ManaGreen.Name].Remove(manaToPay.Green);
+            manaColors[ManaRed.Name].Remove(manaToPay.Red);
+            manaColors[ManaWhite.Name].Remove(manaToPay.White);
+
         }
 
         public void Add(Mana mana)
