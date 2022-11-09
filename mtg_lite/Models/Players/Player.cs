@@ -16,6 +16,7 @@ namespace mtg_lite.Models.Players
         private Zone graveyard;
         private Zone hand;
         private Zone library;
+        
 
         public Mana ManaPool { get => manaPool; }
         public Zone Battlefield { get => battlefield; }
@@ -45,6 +46,22 @@ namespace mtg_lite.Models.Players
 
         public void PlayCard(Card card)
         {
+            switch (card)
+            {
+                case Land:
+                    battlefield.AddCard(card);
+                    break;
+                case Sorcery:
+                    manaPool.Pay(card.ManaCost);
+                    graveyard.AddCard(card);
+                    break;
+                //case Creature:
+                //    manaPool.Pay(card.ManaCost);
+                //    battlefield.AddCard(card);
+                default:
+                    battlefield.AddCard(card);
+                    break; ;
+            }
         }
     }
 }

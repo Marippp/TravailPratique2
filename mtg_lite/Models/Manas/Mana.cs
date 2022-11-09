@@ -56,6 +56,7 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
+
         }
 
         public void Add(Mana mana)
