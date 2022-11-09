@@ -49,5 +49,6 @@ namespace mtg_lite.Models.Cards
         {
             return !(card1 == card2);
         }
+        
     }
 }
