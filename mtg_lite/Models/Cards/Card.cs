@@ -40,7 +40,7 @@ namespace mtg_lite.Models.Cards
             TappedChanged?.Invoke(this, tapped);
         }
 
-        public virtual bool Permanent()
+        public virtual bool EstPermanent()
         {
             return false;
         }

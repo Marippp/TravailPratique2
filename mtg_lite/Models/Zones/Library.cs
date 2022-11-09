@@ -38,6 +38,9 @@ namespace mtg_lite.Models.Zones
         public void MixCards()
         {
             //Mettre du code pour brasser les cartes
+            List<int> PositionHasard = new List<int>();
+            List<Card> cardsTemp = LibraryManager.GetCards("deck");
+            //Faire un random et compter les carte avec count
         }
         public void RemoveCardsFromLibrary()
         {
