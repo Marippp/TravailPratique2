@@ -13,7 +13,7 @@ namespace mtg_lite.Models.Zones
     {
         private static Dictionary<string, List<Card>> libraries = new Dictionary<string, List<Card>>()
         {
-            {"deck", new List<Card>(
+            {"deck", new List<Card>{
                 Creature.FabriquerCarteCreature("aegis_turtle"),
                 Creature.FabriquerCarteCreature("barony_vampire"),
                 Creature.FabriquerCarteCreature("scathe_zombies"),
@@ -23,7 +23,7 @@ namespace mtg_lite.Models.Zones
                 Land.FabriquerCarteLand("island"),
                 Sorcery.FabriquerCarteSorcery("incriminate"),
                 Sorcery.FabriquerCarteSorcery("glimpse_the_unthinkable"),
-                Sorcery.FabriquerCarteSorcery("blightning"))}
+                Sorcery.FabriquerCarteSorcery("blightning")}}
         };
 
         static LibraryManager()
