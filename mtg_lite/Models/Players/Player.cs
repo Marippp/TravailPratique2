@@ -55,9 +55,9 @@ namespace mtg_lite.Models.Players
                     manaPool.Pay(card.ManaCost);
                     graveyard.AddCard(card);
                     break;
-                case Creature:
-                    manaPool.Pay(card.ManaCost);
-                    battlefield.AddCard(card);
+                //case Creature:
+                //    manaPool.Pay(card.ManaCost);
+                //    battlefield.AddCard(card);
                 default:
                     battlefield.AddCard(card);
                     break; ;
