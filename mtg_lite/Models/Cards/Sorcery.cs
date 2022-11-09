@@ -18,13 +18,13 @@ namespace mtg_lite.Models.Cards
             switch (name)
             {
                 case "incriminate":
-                    return new Sorcery("incriminate", new Mana(1, 0, 0, 0, 0, 0), new Bitmap(Image.FromFile("Resources/incriminate.png")));
+                    return new Sorcery("incriminate", new Mana(1, 0, 0, 0, 0, 0), Resource.incriminate);
                 case "glimpse_the_unthinkable":
-                    return new Sorcery("glimpse_the_unthinkable", new Mana(1, 1, 0, 0, 0, 0), new Bitmap(Image.FromFile("Resources/glimpse_the_unthinkable.png")));
+                    return new Sorcery("glimpse_the_unthinkable", new Mana(1, 1, 0, 0, 0, 0), Resource.glimpse_the_unthinkable);
                 case "blightning":
-                    return new Sorcery("blightning", new Mana(1, 0, 0, 1, 0, 0), new Bitmap(Image.FromFile("Resources/blightning")));
+                    return new Sorcery("blightning", new Mana(1, 0, 0, 1, 0, 0), Resource.blightning);
                 default:
-                    return new Sorcery("incriminate", new Mana(1, 0, 0, 0, 0, 0), new Bitmap(Image.FromFile("Resources/incriminate.png")));
+                    return new Sorcery("incriminate", new Mana(1, 0, 0, 0, 0, 0), Resource.incriminate);
             }
         }
     }
