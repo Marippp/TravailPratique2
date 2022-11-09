@@ -9,15 +9,14 @@ namespace mtg_lite.Models.Cards
 {
     public class Land : Card
     {
-        public bool tapped;
+       
 
 
         public Land(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
         }
 
-        public bool Tapped { get => tapped;}
-
+    
         static public Land FabriquerCarteLand(string name)
         {   
             switch (name)
@@ -36,6 +35,10 @@ namespace mtg_lite.Models.Cards
                     return new Land("swamp", new Mana(0, 0, 0, 0, 0, 0), Resource.swamp);
 
             }
+        }
+        public override bool EstPermanent()
+        {
+            return true;
         }
     }
 }
