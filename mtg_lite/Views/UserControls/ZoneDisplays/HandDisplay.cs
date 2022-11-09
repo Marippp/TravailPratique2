@@ -46,7 +46,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void HandSubscribe()
         {
             if (hand is null) { return; }
-            hand.CardsChanged += Hand_CardsChanged; ;
+            hand.CardsChanged += Hand_CardsChanged;
         }
 
         private void Hand_CardsChanged(object? sender, List<Models.Cards.Card> cards)
@@ -56,6 +56,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void rowOfCardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
+            //Changer de bord la carte
         }
     }
 }

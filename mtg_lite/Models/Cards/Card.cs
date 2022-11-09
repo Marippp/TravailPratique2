@@ -39,11 +39,11 @@ namespace mtg_lite.Models.Cards
             tapped = value;
             TappedChanged?.Invoke(this, tapped);
         }
-        public virtual bool EstPermanent()
+
+        public virtual bool Permanent()
         {
             return false;
         }
-        
 
         public static bool operator ==(Card card1, Card card2)
         {
