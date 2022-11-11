@@ -14,6 +14,7 @@ namespace mtg_lite.Models.Zones
         public new string Name { get => "Library"; }
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
+            MixCards();
         }
 
         //Faire une fonction pour mettre DarkCardBack si la pile est vide sinon mettre l'autre
@@ -31,20 +32,41 @@ namespace mtg_lite.Models.Zones
                 }
             }
         }
-        public Card GetTopCard()
+        private Card GetTopCard()
         {
             return cards[cards.Count - 1];
         }
-        public void MixCards()
+        private void MixCards()
         {
-            //Mettre du code pour brasser les cartes
-            List<int> PositionHasard = new List<int>();
-            List<Card> cardsTemp = LibraryManager.GetCards("deck");
-            //Faire un random et compter les carte avec count
-        }
-        public void RemoveCardsFromLibrary()
-        {
+            Card[] cardsTemp = new Card[cards.Count];
+            Random random = new();
+            int position = 0;
 
+            while (position < cards.Count)
+            {
+                int positionTemp = random.Next(0, cards.Count - 1);
+
+                if (cardsTemp[positionTemp] == null)
+                {
+                    cardsTemp[positionTemp] = cards[position];
+                    position++;
+                }
+            }
+            cards = null;
+            foreach (var carte in cardsTemp)
+            {
+                cards.Add(carte);
+            }
+        }
+        public Card RemoveCardsFromLibrary()
+        {
+            Card cardToRemove = GetTopCard();
+            if (cardToRemove == null)
+            {
+                throw new Exception("La pioche est vide, vous avez utiliser toutes les cartes.");
+            }
+            RemoveCard(cardToRemove);
+            return cardToRemove;
         }
     }
 }

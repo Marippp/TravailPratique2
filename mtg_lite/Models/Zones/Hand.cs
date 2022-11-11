@@ -13,23 +13,24 @@ namespace mtg_lite.Models.Zones
         public new string Name { get => "Hand"; }
         public Hand(List<Card> cards, Player player) : base(cards, player)
         {
+            Subscribe();
         }
         public void Subscribe()
         {
-            CardAdded += Battlefield_CardAdded;
+            CardAdded += Hand_CardAdded;
         }
         public void Unsubscribe()
         {
-            CardRemoved += Battlefield_CardRemoved;
+            CardRemoved -= Hand_CardRemoved;
         }
-
-        private void Battlefield_CardAdded(object? sender, Card cardToAdd)
+        private void Hand_CardAdded(object? sender, Card cardToAdd)
         {
             cards.Add(cardToAdd);
         }
-        private void Battlefield_CardRemoved(object? sender, Card cardToRemove)
+
+        private void Hand_CardRemoved(object? sender, Card cardToRemove)
         {
-            cards.Remove(cardToRemove);
+            cards.Add(cardToRemove);
         }
     }
 }

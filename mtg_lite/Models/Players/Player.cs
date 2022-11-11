@@ -43,7 +43,6 @@ namespace mtg_lite.Models.Players
         {
             hand.AddCard(card);
         }
-
         public void PlayCard(Card card)
         {
             switch (card)

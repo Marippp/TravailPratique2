@@ -16,7 +16,11 @@ namespace mtg_lite.Controllers
 
         public Controller()
         {
-            player = new Player("Red");
+            player = new Player("deck");
+        }
+        public void AddCardToHand()
+        {
+            
         }
     }
 }

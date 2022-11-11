@@ -13,6 +13,7 @@ namespace mtg_lite.Models.Zones
         public new string Name { get => "Battlefield"; }
         public Battlefield(List<Card> cards, Player player) : base(cards, player)
         {
+            Subscribe();
         }
         public void Subscribe()
         {
