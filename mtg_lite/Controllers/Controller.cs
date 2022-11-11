@@ -32,7 +32,7 @@ namespace mtg_lite.Controllers
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Vous n'avez pas assez de mana: "+ex.Message);
             }
         }
 

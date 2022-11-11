@@ -63,19 +63,34 @@ namespace MTGO_lite.Models.Manas
             manaColors[ManaGreen.Name].Remove(manaToPay.Green);
             manaColors[ManaRed.Name].Remove(manaToPay.Red);
             manaColors[ManaWhite.Name].Remove(manaToPay.White);
+            
 
         }
+        //public void CompterColorless()
+        //{
+            
+        //    manaColors[ManaColorless.Name].Add(manaColors[ManaBlack.Name]);
+        //    manaColors[ManaColorless.Name].Add(manaColors[ManaBlue.Name]);
+        //    manaColors[ManaColorless.Name].Add(manaColors[ManaGreen.Name]);
+        //    manaColors[ManaColorless.Name].Add(manaColors[ManaRed.Name]);
+        //    manaColors[ManaColorless.Name].Add(manaColors[ManaWhite.Name]);
+
+        //}
+
+        //trouver moyen de reset et de compter le colorless a chaque fois et de remplacer nbColorless dans l operateur
 
         public void Add(Mana mana)
         {
             foreach (var manaColor in mana.manaColors)
             {
                 manaColors[manaColor.Key].Add(manaColor.Value);
+             
             }
         }
 
         public static bool operator >=(Mana mana1, Mana mana2) 
         {
+            int nbColorLess = mana1.ManaColors[ManaColorless.Name].Quantity-mana2.ManaColors[ManaBlack.Name].Quantity- mana2.ManaColors[ManaBlue.Name].Quantity- mana2.ManaColors[ManaGreen.Name].Quantity- mana2.ManaColors[ManaRed.Name].Quantity- mana2.ManaColors[ManaWhite.Name].Quantity;
             if (mana1.ManaColors[ManaBlack.Name].Quantity >= mana2.ManaColors[ManaBlack.Name].Quantity)
             {
                 if (mana1.ManaColors[ManaBlue.Name].Quantity >= mana2.ManaColors[ManaBlue.Name].Quantity)
@@ -86,7 +101,7 @@ namespace MTGO_lite.Models.Manas
                         {
                             if (mana1.ManaColors[ManaWhite.Name].Quantity >= mana2.ManaColors[ManaWhite.Name].Quantity)
                             {
-                                if (mana1.ManaColors[ManaColorless.Name].Quantity >= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                if (nbColorLess >= mana2.ManaColors[ManaColorless.Name].Quantity)
                                 {
                                     return true;
                                 }
@@ -99,13 +114,14 @@ namespace MTGO_lite.Models.Manas
                     return false;
                 }
                 return false;
-
             }
             return false;
         }
 
         public static bool operator <=(Mana mana1, Mana mana2)
         {
+            int nbColorLess = mana1.ManaColors[ManaColorless.Name].Quantity - mana2.ManaColors[ManaBlack.Name].Quantity - mana2.ManaColors[ManaBlue.Name].Quantity - mana2.ManaColors[ManaGreen.Name].Quantity - mana2.ManaColors[ManaRed.Name].Quantity - mana2.ManaColors[ManaWhite.Name].Quantity;
+
             if (mana1.ManaColors[ManaBlack.Name].Quantity <= mana2.ManaColors[ManaBlack.Name].Quantity)
             {
                 if (mana1.ManaColors[ManaBlue.Name].Quantity <= mana2.ManaColors[ManaBlue.Name].Quantity)
@@ -116,7 +132,7 @@ namespace MTGO_lite.Models.Manas
                         {
                             if (mana1.ManaColors[ManaWhite.Name].Quantity <= mana2.ManaColors[ManaWhite.Name].Quantity)
                             {
-                                if (mana1.ManaColors[ManaColorless.Name].Quantity <= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                if (nbColorLess <= mana2.ManaColors[ManaColorless.Name].Quantity)
                                 {
                                     return true;
                                 }
