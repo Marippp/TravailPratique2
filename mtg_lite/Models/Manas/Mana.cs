@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mtg_lite.Models.Cards;
+using mtg_lite.Models.Players;
 using MTGO_lite.Models.Manas.ManaColors;
 
 namespace MTGO_lite.Models.Manas
@@ -71,5 +73,66 @@ namespace MTGO_lite.Models.Manas
                 manaColors[manaColor.Key].Add(manaColor.Value);
             }
         }
+
+        public static bool operator >=(Mana mana1, Mana mana2) 
+        {
+            if (mana1.ManaColors[ManaBlack.Name].Quantity >= mana2.ManaColors[ManaBlack.Name].Quantity)
+            {
+                if (mana1.ManaColors[ManaBlue.Name].Quantity >= mana2.ManaColors[ManaBlue.Name].Quantity)
+                {
+                    if (mana1.ManaColors[ManaGreen.Name].Quantity >= mana2.ManaColors[ManaGreen.Name].Quantity)
+                    {
+                        if (mana1.ManaColors[ManaRed.Name].Quantity >= mana2.ManaColors[ManaRed.Name].Quantity)
+                        {
+                            if (mana1.ManaColors[ManaWhite.Name].Quantity >= mana2.ManaColors[ManaWhite.Name].Quantity)
+                            {
+                                if (mana1.ManaColors[ManaColorless.Name].Quantity >= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                {
+                                    return true;
+                                }
+                                return false;
+                            }
+                            return false;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+
+            }
+            return false;
+        }
+
+        public static bool operator <=(Mana mana1, Mana mana2)
+        {
+            if (mana1.ManaColors[ManaBlack.Name].Quantity <= mana2.ManaColors[ManaBlack.Name].Quantity)
+            {
+                if (mana1.ManaColors[ManaBlue.Name].Quantity <= mana2.ManaColors[ManaBlue.Name].Quantity)
+                {
+                    if (mana1.ManaColors[ManaGreen.Name].Quantity <= mana2.ManaColors[ManaGreen.Name].Quantity)
+                    {
+                        if (mana1.ManaColors[ManaRed.Name].Quantity <= mana2.ManaColors[ManaRed.Name].Quantity)
+                        {
+                            if (mana1.ManaColors[ManaWhite.Name].Quantity <= mana2.ManaColors[ManaWhite.Name].Quantity)
+                            {
+                                if (mana1.ManaColors[ManaColorless.Name].Quantity <= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                {
+                                    return true;
+                                }
+                                return false;
+                            }
+                            return false;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+
+            }
+            return false;
+        }
+
     }
 }

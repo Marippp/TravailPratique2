@@ -1,4 +1,5 @@
-﻿using mtg_lite.Models.Players;
+﻿using mtg_lite.Models.Cards;
+using mtg_lite.Models.Players;
 using mtg_lite.Models.Zones;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,38 @@ namespace mtg_lite.Controllers
         {
             player = new Player("Red");
         }
+
+        public void PlayCard(Card card)
+        {
+            try
+            {
+                if (player.ManaPool >= card.ManaCost)
+                {
+                    player.PlayCard(card);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void DrawCard()
+        {
+            try
+            {
+                if (player.Library.Cards.Count > 0)
+                {
+                   
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
