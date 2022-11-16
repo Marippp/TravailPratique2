@@ -14,7 +14,7 @@ namespace mtg_lite.Models.Zones
         public new string Name { get => "Library"; }
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
-            
+            MixCards();
         }
 
         public new Card TopCard

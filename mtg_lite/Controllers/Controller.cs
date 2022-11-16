@@ -36,21 +36,14 @@ namespace mtg_lite.Controllers
             }
         }
 
-        public void DrawCard(Card card)
+        public void DrawCard()
         {
-            try
+            if (player.Library.Cards.Count > 0)
             {
-                if (player.Library.Cards.Count > 0)
-                {
-                    var picture = new Bitmap(card.Picture);
-                    //Jsp quoi mettre
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                player.Hand.AddCard(player.Library.TopCard);
+                player.Library.RemoveCard(player.Library.TopCard);
             }
         }
-
+        
     }
 }
