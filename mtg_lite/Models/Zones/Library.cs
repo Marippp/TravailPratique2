@@ -42,7 +42,7 @@ namespace mtg_lite.Models.Zones
             
             for (int index = 0; index < cardsTemp.Count(); index++)
             {
-                int randomPosition = cards.Count() -1;
+                int randomPosition = random.Next(cards.Count());
                 cardsTemp[index] = cards[randomPosition];
                 cards.Remove(cards[randomPosition]);
             }
