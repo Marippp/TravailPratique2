@@ -32,5 +32,21 @@ namespace mtg_lite.Models.Zones
         {
             cards.Remove(cardToRemove);
         }
+
+        public void ChangeTapped(Card card) 
+        {
+            switch (card)
+            {
+                case Land:
+                    card.Tapped = true;
+                    player.ManaPool.Add(card.ManaCost);
+                    break;
+                case Creature:
+                    card.Tapped = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

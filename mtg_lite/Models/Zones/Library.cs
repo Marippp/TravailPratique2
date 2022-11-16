@@ -17,7 +17,6 @@ namespace mtg_lite.Models.Zones
             MixCards();
         }
 
-        //Faire une fonction pour mettre DarkCardBack si la pile est vide sinon mettre l'autre
         public new Card TopCard
         {
             get

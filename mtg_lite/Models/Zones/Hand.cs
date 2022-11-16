@@ -30,7 +30,7 @@ namespace mtg_lite.Models.Zones
 
         private void Hand_CardRemoved(object? sender, Card cardToRemove)
         {
-            cards.Add(cardToRemove);
+            cards.Remove(cardToRemove);
         }
     }
 }
