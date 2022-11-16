@@ -102,7 +102,7 @@ namespace MTGO_lite.Models.Manas
                         {
                             if (mana1.ManaColors[ManaWhite.Name].Quantity >= mana2.ManaColors[ManaWhite.Name].Quantity)
                             {
-                                if (mana2.ManaColors[ManaColorless.Name].Quantity >= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                if (nbColorLess >= mana2.ManaColors[ManaColorless.Name].Quantity)
                                 {
                                     return true;
                                 }
