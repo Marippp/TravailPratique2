@@ -28,5 +28,10 @@ namespace mtg_lite.Models.Cards
                     return new Creature("scathe_zombies", new Mana(2, 0, 0, 0, 0, 0), Resource.scathe_zombies);
             }
         }
+
+        public override bool EstPermanent()
+        {
+            return true;
+        }
     }
 }
