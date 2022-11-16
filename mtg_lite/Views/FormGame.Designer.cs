@@ -38,62 +38,61 @@
             // libraryDisplay
             // 
             this.libraryDisplay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.libraryDisplay.Location = new System.Drawing.Point(10, 10);
-            this.libraryDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.libraryDisplay.Location = new System.Drawing.Point(8, 7);
+            this.libraryDisplay.Margin = new System.Windows.Forms.Padding(1);
             this.libraryDisplay.Name = "libraryDisplay";
-            this.libraryDisplay.Size = new System.Drawing.Size(163, 241);
+            this.libraryDisplay.Size = new System.Drawing.Size(143, 181);
             this.libraryDisplay.TabIndex = 0;
             this.libraryDisplay.Zone = null;
-            this.libraryDisplay.Click += new System.EventHandler(this.libraryDisplay_Click_1);
+            this.libraryDisplay.Click += new System.EventHandler(this.libraryDisplay_Click);
             // 
             // graveyardDisplay
             // 
             this.graveyardDisplay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.graveyardDisplay.Location = new System.Drawing.Point(10, 255);
-            this.graveyardDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.graveyardDisplay.Location = new System.Drawing.Point(8, 191);
+            this.graveyardDisplay.Margin = new System.Windows.Forms.Padding(1);
             this.graveyardDisplay.Name = "graveyardDisplay";
-            this.graveyardDisplay.Size = new System.Drawing.Size(163, 241);
+            this.graveyardDisplay.Size = new System.Drawing.Size(143, 181);
             this.graveyardDisplay.TabIndex = 1;
             this.graveyardDisplay.Zone = null;
             // 
             // handDisplay
             // 
             this.handDisplay.Hand = null;
-            this.handDisplay.Location = new System.Drawing.Point(184, 546);
-            this.handDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.handDisplay.Location = new System.Drawing.Point(161, 409);
+            this.handDisplay.Margin = new System.Windows.Forms.Padding(1);
             this.handDisplay.Name = "handDisplay";
-            this.handDisplay.Size = new System.Drawing.Size(1300, 271);
+            this.handDisplay.Size = new System.Drawing.Size(1138, 203);
             this.handDisplay.TabIndex = 3;
             // 
             // manaPoolDisplay
             // 
-            this.manaPoolDisplay.Location = new System.Drawing.Point(10, 548);
+            this.manaPoolDisplay.Location = new System.Drawing.Point(8, 411);
             this.manaPoolDisplay.ManaPool = null;
-            this.manaPoolDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manaPoolDisplay.Margin = new System.Windows.Forms.Padding(1);
             this.manaPoolDisplay.Name = "manaPoolDisplay";
-            this.manaPoolDisplay.Size = new System.Drawing.Size(170, 269);
+            this.manaPoolDisplay.Size = new System.Drawing.Size(148, 202);
             this.manaPoolDisplay.TabIndex = 4;
             // 
             // battlefieldDisplay
             // 
             this.battlefieldDisplay.Battlefield = null;
-            this.battlefieldDisplay.Location = new System.Drawing.Point(187, 10);
-            this.battlefieldDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.battlefieldDisplay.Location = new System.Drawing.Point(164, 7);
+            this.battlefieldDisplay.Margin = new System.Windows.Forms.Padding(1);
             this.battlefieldDisplay.Name = "battlefieldDisplay";
-            this.battlefieldDisplay.Size = new System.Drawing.Size(1297, 531);
+            this.battlefieldDisplay.Size = new System.Drawing.Size(1135, 398);
             this.battlefieldDisplay.TabIndex = 5;
             // 
             // FormGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1489, 834);
+            this.ClientSize = new System.Drawing.Size(1303, 625);
             this.Controls.Add(this.battlefieldDisplay);
             this.Controls.Add(this.manaPoolDisplay);
             this.Controls.Add(this.handDisplay);
             this.Controls.Add(this.graveyardDisplay);
             this.Controls.Add(this.libraryDisplay);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormGame";
             this.Text = "Game";
             this.ResumeLayout(false);

@@ -22,11 +22,10 @@ namespace mtg_lite
             battlefieldDisplay.Battlefield = controller.Player.Battlefield;
         }
 
-
-        private void libraryDisplay_Click_1(object sender, EventArgs e)
+        private void libraryDisplay_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Allo");
-            //controller.DrawCard();
+            MessageBox.Show("allo");
+            controller.DrawCard();
         }
 
     }
