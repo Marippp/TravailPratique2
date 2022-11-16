@@ -59,10 +59,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void cardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
             //Changer de bord la carte
-            if (card.Tapped == true)
-            {
-                
-            }
+            card.Picture.RotateFlip(RotateFlipType.Rotate180FlipY);
         }
     }
 }

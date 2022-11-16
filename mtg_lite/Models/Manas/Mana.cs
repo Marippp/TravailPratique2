@@ -91,7 +91,8 @@ namespace MTGO_lite.Models.Manas
 
         public static bool operator >=(Mana mana1, Mana mana2) 
         {
-            int nbColorLess = mana1.ManaColors[ManaColorless.Name].Quantity-mana2.ManaColors[ManaBlack.Name].Quantity- mana2.ManaColors[ManaBlue.Name].Quantity- mana2.ManaColors[ManaGreen.Name].Quantity- mana2.ManaColors[ManaRed.Name].Quantity- mana2.ManaColors[ManaWhite.Name].Quantity;
+            int nbColorLess = mana1.ManaColors[ManaColorless.Name].Quantity - mana2.ManaColors[ManaBlack.Name].Quantity - mana2.ManaColors[ManaBlue.Name].Quantity - mana2.ManaColors[ManaGreen.Name].Quantity - mana2.ManaColors[ManaRed.Name].Quantity - mana2.ManaColors[ManaWhite.Name].Quantity;
+
             if (mana1.ManaColors[ManaBlack.Name].Quantity >= mana2.ManaColors[ManaBlack.Name].Quantity)
             {
                 if (mana1.ManaColors[ManaBlue.Name].Quantity >= mana2.ManaColors[ManaBlue.Name].Quantity)
