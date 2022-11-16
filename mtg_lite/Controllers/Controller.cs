@@ -19,10 +19,6 @@ namespace mtg_lite.Controllers
         {
             player = new Player("deck");
         }
-        public void AddCardToHand()
-        {
-            
-        }
 
         public void PlayCard(Card card)
         {
@@ -40,19 +36,19 @@ namespace mtg_lite.Controllers
             }
         }
 
-        public void DrawCard()
+        public void DrawCard(Card card)
         {
             try
             {
                 if (player.Library.Cards.Count > 0)
                 {
-                   
+                    var picture = new Bitmap(card.Picture);
+                    //Jsp quoi mettre
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 

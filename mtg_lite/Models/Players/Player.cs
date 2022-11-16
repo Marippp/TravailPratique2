@@ -33,7 +33,6 @@ namespace mtg_lite.Models.Players
             this.library = new Library(LibraryManager.GetCards(libraryName), this);
             Subscribe();
         }
-
         public void Subscribe()
         {
             library.CardRemoved += Library_CardRemoved;
