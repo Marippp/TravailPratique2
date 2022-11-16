@@ -40,7 +40,6 @@ namespace mtg_lite.Controllers
         {
             if (player.Library.Cards.Count > 0)
             {
-                player.Hand.AddCard(player.Library.TopCard);
                 player.Library.RemoveCard(player.Library.TopCard);
             }
         }

@@ -53,11 +53,6 @@ namespace mtg_lite.Models.Zones
             CardsChanged?.Invoke(this, cards);
         }
 
-        protected void RemoveTopCard()
-        {
-            cards.RemoveAt(cards.Count - 1);
-        }
-
         public override string ToString()
         {
             return $"{Name} ({cards.Count})";
