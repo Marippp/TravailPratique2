@@ -37,21 +37,16 @@ namespace mtg_lite.Models.Zones
         }
         private void MixCards()
         {
-            Card[] cardsTemp = new Card[cards.Count];
+            Card[] cardsTemp = new Card[cards.Count()];
             Random random = new();
-            int position = 0;
-
-            while (position < cards.Count)
+            
+            for (int index = 0; index < cardsTemp.Count(); index++)
             {
-                int positionTemp = random.Next(0, cards.Count - 1);
-
-                if (cardsTemp[positionTemp] == null)
-                {
-                    cardsTemp[positionTemp] = cards[position];
-                    position++;
-                }
+                int randomPosition = random.Next(cards.Count());
+                cardsTemp[index] = cards[randomPosition];
+                cards.Remove(cards[randomPosition]);
             }
-            cards = null;
+
             foreach (var carte in cardsTemp)
             {
                 cards.Add(carte);
@@ -60,7 +55,7 @@ namespace mtg_lite.Models.Zones
         public Card RemoveCardsFromLibrary()
         {
             Card cardToRemove = GetTopCard();
-            if (cardToRemove == null)
+            if (cardToRemove is null)
             {
                 throw new Exception("La pioche est vide, vous avez utiliser toutes les cartes.");
             }
