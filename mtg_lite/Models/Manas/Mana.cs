@@ -66,16 +66,17 @@ namespace MTGO_lite.Models.Manas
             
 
         }
-        //public void CompterColorless()
-        //{
-            
-        //    manaColors[ManaColorless.Name].Add(manaColors[ManaBlack.Name]);
-        //    manaColors[ManaColorless.Name].Add(manaColors[ManaBlue.Name]);
-        //    manaColors[ManaColorless.Name].Add(manaColors[ManaGreen.Name]);
-        //    manaColors[ManaColorless.Name].Add(manaColors[ManaRed.Name]);
-        //    manaColors[ManaColorless.Name].Add(manaColors[ManaWhite.Name]);
+        public void CompterColorless()
+        {
+            manaColors[ManaColorless.Name].Remove(manaColors[ManaColorless.Name]);
 
-        //}
+            manaColors[ManaColorless.Name].Add(manaColors[ManaBlack.Name]);
+            manaColors[ManaColorless.Name].Add(manaColors[ManaBlue.Name]);
+            manaColors[ManaColorless.Name].Add(manaColors[ManaGreen.Name]);
+            manaColors[ManaColorless.Name].Add(manaColors[ManaRed.Name]);
+            manaColors[ManaColorless.Name].Add(manaColors[ManaWhite.Name]);
+
+        }
 
         //trouver moyen de reset et de compter le colorless a chaque fois et de remplacer nbColorless dans l operateur
 
@@ -101,7 +102,7 @@ namespace MTGO_lite.Models.Manas
                         {
                             if (mana1.ManaColors[ManaWhite.Name].Quantity >= mana2.ManaColors[ManaWhite.Name].Quantity)
                             {
-                                if (nbColorLess >= mana2.ManaColors[ManaColorless.Name].Quantity)
+                                if (mana2.ManaColors[ManaColorless.Name].Quantity >= mana2.ManaColors[ManaColorless.Name].Quantity)
                                 {
                                     return true;
                                 }
