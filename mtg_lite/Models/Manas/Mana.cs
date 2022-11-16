@@ -63,8 +63,8 @@ namespace MTGO_lite.Models.Manas
             manaColors[ManaGreen.Name].Remove(manaToPay.Green);
             manaColors[ManaRed.Name].Remove(manaToPay.Red);
             manaColors[ManaWhite.Name].Remove(manaToPay.White);
-            
 
+            CompterColorless();
         }
         public void CompterColorless()
         {
