@@ -19,10 +19,6 @@ namespace mtg_lite.Controllers
         {
             player = new Player("deck");
         }
-        public void AddCardToHand()
-        {
-            
-        }
 
         public void PlayCard(Card card)
         {
@@ -42,19 +38,12 @@ namespace mtg_lite.Controllers
 
         public void DrawCard()
         {
-            try
+            if (player.Library.Cards.Count > 0)
             {
-                if (player.Library.Cards.Count > 0)
-                {
-                   
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
+                player.Hand.AddCard(player.Library.TopCard);
+                player.Library.RemoveCard(player.Library.TopCard);
             }
         }
-
+        
     }
 }
