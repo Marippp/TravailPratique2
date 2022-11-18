@@ -24,14 +24,36 @@ namespace mtg_lite.Controllers
         {
             try
             {
-                if (player.ManaPool >= card.ManaCost)
+                if (card.GetType() == typeof(Land))
                 {
-                    player.PlayCard(card);
+                    player.Battlefield.AddCard(card);
                 }
                 else
                 {
-                    throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
+                    if (player.ManaPool >= card.ManaCost)
+                    {
+                        switch (card)
+                        {
+                            case Sorcery:
+                                player.ManaPool.Pay(card.ManaCost);
+                                player.Graveyard.AddCard(card);
+                                break;
+                            case Creature:
+                                player.ManaPool.Pay(card.ManaCost);
+                                player.Battlefield.AddCard(card);
+                                break;
+                            default:
+                                player.Battlefield.AddCard(card);
+                                break; ;
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
+                    }
                 }
+                
+                
             }
             catch (Exception ex)
             {
