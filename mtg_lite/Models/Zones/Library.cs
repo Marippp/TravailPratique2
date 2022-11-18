@@ -17,7 +17,7 @@ namespace mtg_lite.Models.Zones
             MixCards();
         }
 
-        public new Card TopCard
+        public override Card TopCard
         {
             get
             {
@@ -52,15 +52,5 @@ namespace mtg_lite.Models.Zones
                 cards.Add(carte);
             }
         }
-        //public Card RemoveCardsFromLibrary()
-        //{
-        //    Card cardToRemove = GetTopCard();
-        //    if (cardToRemove is null)
-        //    {
-        //        throw new Exception("La pioche est vide, vous avez utilisé toutes les cartes.");
-        //    }
-        //    RemoveCard(cardToRemove);
-        //    return cardToRemove;
-        //}
     }
 }
