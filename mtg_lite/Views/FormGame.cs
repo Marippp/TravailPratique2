@@ -24,7 +24,8 @@ namespace mtg_lite
 
         private void libraryDisplay_Click(object sender, EventArgs e)
         {
-
+            controller.DrawCard();
         }
+
     }
 }

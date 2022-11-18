@@ -40,7 +40,6 @@ namespace mtg_lite.Models.Zones
 
         public void AddCard(Card card)
         {
-            cards.Add(card);
             CardAdded?.Invoke(this, card);
             CardsChanged?.Invoke(this, cards);
         }
@@ -51,11 +50,6 @@ namespace mtg_lite.Models.Zones
             cards.RemoveAt(index);
             CardRemoved?.Invoke(this, cardToRemove);
             CardsChanged?.Invoke(this, cards);
-        }
-
-        protected void RemoveTopCard()
-        {
-            cards.RemoveAt(cards.Count - 1);
         }
 
         public override string ToString()

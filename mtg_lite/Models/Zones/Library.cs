@@ -17,7 +17,6 @@ namespace mtg_lite.Models.Zones
             MixCards();
         }
 
-        //Faire une fonction pour mettre DarkCardBack si la pile est vide sinon mettre l'autre
         public new Card TopCard
         {
             get
@@ -38,35 +37,30 @@ namespace mtg_lite.Models.Zones
         }
         private void MixCards()
         {
-            Card[] cardsTemp = new Card[cards.Count];
+            Card[] cardsTemp = new Card[cards.Count()];
             Random random = new();
-            int position = 0;
-
-            while (position < cards.Count)
+            
+            for (int index = 0; index < cardsTemp.Count(); index++)
             {
-                int positionTemp = random.Next(0, cards.Count - 1);
-
-                if (cardsTemp[positionTemp] == null)
-                {
-                    cardsTemp[positionTemp] = cards[position];
-                    position++;
-                }
+                int randomPosition = random.Next(cards.Count());
+                cardsTemp[index] = cards[randomPosition];
+                cards.Remove(cards[randomPosition]);
             }
-            cards = null;
+
             foreach (var carte in cardsTemp)
             {
                 cards.Add(carte);
             }
         }
-        public Card RemoveCardsFromLibrary()
-        {
-            Card cardToRemove = GetTopCard();
-            if (cardToRemove == null)
-            {
-                throw new Exception("La pioche est vide, vous avez utiliser toutes les cartes.");
-            }
-            RemoveCard(cardToRemove);
-            return cardToRemove;
-        }
+        //public Card RemoveCardsFromLibrary()
+        //{
+        //    Card cardToRemove = GetTopCard();
+        //    if (cardToRemove is null)
+        //    {
+        //        throw new Exception("La pioche est vide, vous avez utilisé toutes les cartes.");
+        //    }
+        //    RemoveCard(cardToRemove);
+        //    return cardToRemove;
+        //}
     }
 }
