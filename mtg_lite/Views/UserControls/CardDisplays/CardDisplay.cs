@@ -41,6 +41,7 @@ namespace mtg_lite.Views.UserControls.CardDisplays
             if (card is null) { return; }
             var image = new Bitmap(card.Picture);
             picCard.Image = image;
+            GC.Collect();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
