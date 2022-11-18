@@ -17,7 +17,7 @@ namespace mtg_lite.Models.Zones
             MixCards();
         }
 
-        public new Card TopCard
+        public override Card TopCard
         {
             get
             {
@@ -30,10 +30,6 @@ namespace mtg_lite.Models.Zones
                     return new CardBack();
                 }
             }
-        }
-        private Card GetTopCard()
-        {
-            return cards[cards.Count - 1];
         }
         private void MixCards()
         {

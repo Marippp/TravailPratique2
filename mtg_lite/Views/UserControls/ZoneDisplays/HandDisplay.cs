@@ -1,4 +1,5 @@
-﻿using mtg_lite.Models.Zones;
+﻿using mtg_lite.Models.Cards;
+using mtg_lite.Models.Zones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         public Zone? Hand { get => hand; set => ChangeHand(value); }
 
+        public event EventHandler<Card> CardClicked;
         public HandDisplay()
         {
             InitializeComponent();
@@ -56,7 +58,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void rowOfCardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
-            //Changer de bord la carte
+            CardClicked?.Invoke(this, card);
         }
     }
 }

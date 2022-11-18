@@ -28,10 +28,14 @@ namespace mtg_lite.Controllers
                 {
                     player.PlayCard(card);
                 }
+                else
+                {
+                    throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Vous n'avez pas assez de mana pour jouer cette carte: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -39,7 +43,7 @@ namespace mtg_lite.Controllers
         {
             if (player.Library.Cards.Count > 0)
             {
-                player.Library.RemoveCard(player.Library.TopCard);
+                player.Library.RemoveCard(player.Library.Cards[0]);
             }
         }
         
