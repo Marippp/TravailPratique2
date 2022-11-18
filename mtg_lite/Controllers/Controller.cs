@@ -41,9 +41,20 @@ namespace mtg_lite.Controllers
 
         public void DrawCard()
         {
-            if (player.Library.Cards.Count > 0)
+            try
             {
-                player.Library.RemoveCard(player.Library.Cards[0]);
+                if (player.Library.Cards.Count > 0)
+                {
+                    player.Library.RemoveCard(player.Library.Cards[0]);
+                }
+                else
+                {
+                    throw new Exception("La pioche est vide, vous avez utilisé toutes les cartes.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
         
