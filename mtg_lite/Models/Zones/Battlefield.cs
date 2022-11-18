@@ -48,5 +48,9 @@ namespace mtg_lite.Models.Zones
                     break;
             }
         }
+        public override string ToString()
+        {
+            return $"{Name} ({cards.Count})";
+        }
     }
 }

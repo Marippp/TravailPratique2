@@ -14,6 +14,9 @@ namespace mtg_lite.Models.Zones
         public Graveyard(List<Card> cards, Player player) : base(cards, player)
         {
         }
-        
+        public override string ToString()
+        {
+            return $"{Name} ({cards.Count})";
+        }
     }
 }

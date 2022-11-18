@@ -32,5 +32,9 @@ namespace mtg_lite.Models.Zones
         {
             cards.Remove(cardToRemove);
         }
+        public override string ToString()
+        {
+            return $"{Name} ({cards.Count})";
+        }
     }
 }
