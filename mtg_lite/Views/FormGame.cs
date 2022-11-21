@@ -20,7 +20,6 @@ namespace mtg_lite
         {
             libraryDisplay.Zone = controller.Player.Library;
             graveyardDisplay.Zone = controller.Player.Graveyard;
-            graveyardDisplay.DesactiverClick();
             handDisplay.Hand = controller.Player.Hand;
             battlefieldDisplay.Battlefield = controller.Player.Battlefield;
         }

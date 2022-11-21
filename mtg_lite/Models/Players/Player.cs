@@ -37,6 +37,19 @@ namespace mtg_lite.Models.Players
         public void Subscribe()
         {
             library.CardRemoved += Library_CardRemoved;
+            hand.CardRemoved += Hand_CardRemoved;
+        }
+
+        private void Hand_CardRemoved(object? sender, Card card)
+        {
+            if (card.EstPermanent())
+            {
+                battlefield.AddCard(card);
+            }
+            else
+            {
+                graveyard.AddCard(card);
+            }
         }
 
         private void Library_CardRemoved(object? sender, Cards.Card card)

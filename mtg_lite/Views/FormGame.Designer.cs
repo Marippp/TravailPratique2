@@ -93,6 +93,8 @@
             this.Controls.Add(this.handDisplay);
             this.Controls.Add(this.graveyardDisplay);
             this.Controls.Add(this.libraryDisplay);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormGame";
             this.Text = "Game";
             this.ResumeLayout(false);
