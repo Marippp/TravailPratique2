@@ -21,6 +21,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         public TopCardZoneDisplay()
         {
             InitializeComponent();
+            cardDisplay.Enabled = false;
         }
 
         private void ChangeZone(Zone? newZone)
@@ -49,10 +50,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
             if (zone is null) { return; }
             zone.CardsChanged += Zone_CardsChanged;
         }
-        public void DesactiverClick()
-        {
-            cardDisplay.Enabled = false;
-        }
+
         private void Zone_CardsChanged(object? sender, List<Models.Cards.Card> e)
         {
             DisplayZone();

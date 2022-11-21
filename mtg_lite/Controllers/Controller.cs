@@ -26,26 +26,14 @@ namespace mtg_lite.Controllers
             {
                 if (card.GetType() == typeof(Land))
                 {
-                    player.Battlefield.AddCard(card);
+                    player.Hand.RemoveCard(card);
+                    player.ManaPool.Add(card.ManaCost);
                 }
                 else
                 {
-                    if (player.ManaPool >= card.ManaCost)
+                    if (!(player.ManaPool >= card.ManaCost))
                     {
-                        switch (card)
-                        {
-                            case Sorcery:
-                                player.ManaPool.Pay(card.ManaCost);
-                                player.Graveyard.AddCard(card);
-                                break;
-                            case Creature:
-                                player.ManaPool.Pay(card.ManaCost);
-                                player.Battlefield.AddCard(card);
-                                break;
-                            default:
-                                player.Battlefield.AddCard(card);
-                                break; ;
-                        }
+                        player.Hand.RemoveCard(card);
                     }
                     else
                     {

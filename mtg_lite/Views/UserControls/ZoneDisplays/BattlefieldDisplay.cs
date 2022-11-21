@@ -37,6 +37,21 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         {
             if (battlefield is null) { return; }
             grpBattlefield.Text = battlefield.ToString();
+            List<Card> lstLands= new List<Card>();
+            List<Card> lstCreatures = new List<Card>();
+            foreach (Card card in battlefield.Cards)
+            {
+                if (card.GetType() == typeof(Land))
+                {
+                    lstLands.Add(card);
+                }
+                else
+                {
+                    lstCreatures.Add(card);
+                }
+            }
+            landsDisplay.Cards = lstLands;
+            creaturesDisplay.Cards = lstCreatures;
         }
 
         private void BattlefieldUnsubscribe()
