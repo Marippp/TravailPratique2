@@ -58,12 +58,21 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         {
             if (battlefield is null) { return; }
             battlefield.CardsChanged -= Battlefield_CardsChanged;
+            creaturesDisplay.CardClicked -= CreaturesDisplay_CardClicked;
+            landsDisplay.CardClicked -= CreaturesDisplay_CardClicked;
         }
 
         private void BattlefieldSubscribe()
         {
             if (battlefield is null) { return; }
             battlefield.CardsChanged += Battlefield_CardsChanged;
+            creaturesDisplay.CardClicked += CreaturesDisplay_CardClicked;
+            landsDisplay.CardClicked += CreaturesDisplay_CardClicked;
+        }
+
+        private void CreaturesDisplay_CardClicked(object? sender, Card e)
+        {
+            // code pour relier au controlleur
         }
 
         private void Battlefield_CardsChanged(object? sender, List<Models.Cards.Card> cards)
