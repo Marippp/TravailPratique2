@@ -23,22 +23,26 @@ namespace mtg_lite.Views.UserControls.CardDisplays
         public CardDisplay()
         {
             InitializeComponent();
-            Subscribe();
         }
 
         public CardDisplay(Card card): this()
         {
             ChangeCard(card);
+            Subscribe();
         }
 
         private void Subscribe()
         {
+            card.TappedChanged -= Card_TappedChanged;
             card.TappedChanged += Card_TappedChanged;
         }
 
         private void Card_TappedChanged(object? sender, bool e)
         {
-            picCard.Image.RotateFlip(RotateFlipType.Rotate180FlipY);
+            Image img = picCard.Image;
+            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            picCard.Image = img;
+            GC.Collect();
         }
 
         private void ChangeCard(Card? newCard)

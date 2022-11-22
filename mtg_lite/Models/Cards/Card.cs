@@ -32,6 +32,7 @@ namespace mtg_lite.Models.Cards
             this.picture = picture;
             tapped = false;
             guid = Guid.NewGuid();
+            GC.Collect();
         }
 
         private void ChangeTapped(bool value)

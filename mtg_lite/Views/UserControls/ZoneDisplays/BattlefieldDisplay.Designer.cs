@@ -41,7 +41,6 @@
             this.creaturesDisplay.Name = "creaturesDisplay";
             this.creaturesDisplay.Size = new System.Drawing.Size(1600, 300);
             this.creaturesDisplay.TabIndex = 0;
-            this.creaturesDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardsDisplay_CardClicked);
             // 
             // grpBattlefield
             // 
@@ -61,7 +60,6 @@
             this.landsDisplay.Name = "landsDisplay";
             this.landsDisplay.Size = new System.Drawing.Size(1600, 300);
             this.landsDisplay.TabIndex = 1;
-            this.landsDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardsDisplay_CardClicked);
             // 
             // BattlefieldDisplay
             // 

@@ -33,6 +33,7 @@ namespace mtg_lite.Views.UserControls.ManaDisplays
             if(manaColor is null) { return; }
             picIcon.Image = manaColor.Icon;
             UpdateDisplayQuantity();
+            GC.Collect();
         }
 
         private void UpdateDisplayQuantity()
