@@ -31,6 +31,7 @@ namespace mtg_lite.Views.UserControls.ManaDisplays
         private void DisplayManaPool()
         {
             if(manaPool is null) { return; }
+            flowLayoutPanel.Controls.Clear();
             foreach (var mana in manaPool.ManaColors)
             {
                 var manaColorDisplay = new ManaColorDisplay();

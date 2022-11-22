@@ -63,7 +63,6 @@ namespace MTGO_lite.Models.Manas
             manaColors[ManaGreen.Name].Remove(manaToPay.Green);
             manaColors[ManaRed.Name].Remove(manaToPay.Red);
             manaColors[ManaWhite.Name].Remove(manaToPay.White);
-
             CompterColorless();
         }
         public void CompterColorless()
@@ -75,18 +74,15 @@ namespace MTGO_lite.Models.Manas
             manaColors[ManaColorless.Name].Add(manaColors[ManaGreen.Name]);
             manaColors[ManaColorless.Name].Add(manaColors[ManaRed.Name]);
             manaColors[ManaColorless.Name].Add(manaColors[ManaWhite.Name]);
-
         }
-
-        //trouver moyen de reset et de compter le colorless a chaque fois et de remplacer nbColorless dans l operateur
 
         public void Add(Mana mana)
         {
             foreach (var manaColor in mana.manaColors)
             {
                 manaColors[manaColor.Key].Add(manaColor.Value);
-             
             }
+            CompterColorless();
         }
 
         public static bool operator >=(Mana mana1, Mana mana2) 

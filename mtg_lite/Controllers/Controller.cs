@@ -1,6 +1,7 @@
 ﻿using mtg_lite.Models.Cards;
 using mtg_lite.Models.Players;
 using mtg_lite.Models.Zones;
+using MTGO_lite.Models.Manas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace mtg_lite.Controllers
     public class Controller
     {
         private Player player;
+
+        public event EventHandler<Mana> manaPoolUpdated;
 
         public Player Player { get => player; }
 
@@ -27,11 +30,10 @@ namespace mtg_lite.Controllers
                 if (card.GetType() == typeof(Land))
                 {
                     player.Hand.RemoveCard(card);
-                    player.ManaPool.Add(card.ManaCost);
                 }
                 else
                 {
-                    if (!(player.ManaPool >= card.ManaCost))
+                    if ((player.ManaPool >= card.ManaCost) || card.EstPermanent())
                     {
                         player.Hand.RemoveCard(card);
                     }
@@ -48,6 +50,41 @@ namespace mtg_lite.Controllers
                 MessageBox.Show(ex.Message);
             }
         }
+
+
+        public void TapCard(Card card)
+        {
+            if (card.GetType() == typeof(Land))
+            {
+                player.ManaPool.Add(card.ManaCost);
+                card.Tapped = !card.Tapped;
+                if (card.Tapped)
+                {
+                    manaPoolUpdated?.Invoke(this, player.ManaPool);
+                }
+            }
+            else
+            {
+                if (!card.Tapped)
+                {
+                    if (player.ManaPool >= card.ManaCost)
+                    {
+                        player.ManaPool.Pay(card.ManaCost);
+                        card.Tapped = !card.Tapped;
+                        manaPoolUpdated?.Invoke(this, player.ManaPool);
+                    }
+                    else
+                    {
+                        throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
+                    }
+                }
+                else
+                {
+                    card.Tapped = false;
+                }
+            }
+        }
+
 
         public void DrawCard()
         {

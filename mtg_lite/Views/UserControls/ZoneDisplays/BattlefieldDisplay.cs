@@ -20,6 +20,8 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         public Zone? Battlefield { get => battlefield; set => ChangeBattlefield(value); }
 
+        public event EventHandler<Card>? CardClicked;
+
         public BattlefieldDisplay()
         {
             InitializeComponent();
@@ -70,19 +72,14 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
             landsDisplay.CardClicked += CreaturesDisplay_CardClicked;
         }
 
-        private void CreaturesDisplay_CardClicked(object? sender, Card e)
+        private void CreaturesDisplay_CardClicked(object? sender, Card card)
         {
-            // code pour relier au controlleur
+            CardClicked?.Invoke(this, card);
         }
 
         private void Battlefield_CardsChanged(object? sender, List<Models.Cards.Card> cards)
         {
             DisplayBattlefield();
-        }
-
-        private void cardsDisplay_CardClicked(object sender, Models.Cards.Card card)
-        {
-            card.Picture.RotateFlip(RotateFlipType.Rotate180FlipY);
         }
     }
 }

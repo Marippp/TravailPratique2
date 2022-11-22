@@ -31,6 +31,25 @@ namespace mtg_lite
         private void Subscribe()
         {
             handDisplay.CardClicked += HandDisplay_CardClicked;
+            battlefieldDisplay.CardClicked += BattlefieldDisplay_CardClicked;
+            controller.manaPoolUpdated += Controller_manaPoolUpdated;
+        }
+
+        private void Controller_manaPoolUpdated(object? sender, MTGO_lite.Models.Manas.Mana manaPool)
+        {
+            manaPoolDisplay.ManaPool = manaPool;
+        }
+
+        private void BattlefieldDisplay_CardClicked(object? sender, Card card)
+        {
+            try
+            {
+                controller.TapCard(card);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void HandDisplay_CardClicked(object? sender, Card card)
