@@ -33,8 +33,10 @@ namespace mtg_lite.Controllers
                 }
                 else
                 {
-                    if ((player.ManaPool >= card.ManaCost) || card.EstPermanent())
+                    if (player.ManaPool >= card.ManaCost)
                     {
+                        player.ManaPool.Pay(card.ManaCost);
+                        manaPoolUpdated?.Invoke(this, player.ManaPool);
                         player.Hand.RemoveCard(card);
                     }
                     else
@@ -56,31 +58,11 @@ namespace mtg_lite.Controllers
         {
             if (card.GetType() == typeof(Land))
             {
-                player.ManaPool.Add(card.ManaCost);
                 card.Tapped = !card.Tapped;
                 if (card.Tapped)
                 {
+                    player.ManaPool.Add(card.ManaCost);
                     manaPoolUpdated?.Invoke(this, player.ManaPool);
-                }
-            }
-            else
-            {
-                if (!card.Tapped)
-                {
-                    if (player.ManaPool >= card.ManaCost)
-                    {
-                        player.ManaPool.Pay(card.ManaCost);
-                        card.Tapped = !card.Tapped;
-                        manaPoolUpdated?.Invoke(this, player.ManaPool);
-                    }
-                    else
-                    {
-                        throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
-                    }
-                }
-                else
-                {
-                    card.Tapped = false;
                 }
             }
         }
