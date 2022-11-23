@@ -51,7 +51,6 @@
             this.cardDisplay.Name = "cardDisplay";
             this.cardDisplay.Size = new System.Drawing.Size(165, 229);
             this.cardDisplay.TabIndex = 2;
-            this.cardDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardDisplay_CardClicked);
             // 
             // TopCardZoneDisplay
             // 

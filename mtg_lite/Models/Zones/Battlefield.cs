@@ -19,18 +19,9 @@ namespace mtg_lite.Models.Zones
         {
             CardAdded += Battlefield_CardAdded;
         }
-        public void Unsubscribe()
-        {
-            CardRemoved += Battlefield_CardRemoved;
-        }
-
         private void Battlefield_CardAdded(object? sender, Card cardToAdd)
         {
             cards.Add(cardToAdd);
-        }
-        private void Battlefield_CardRemoved(object? sender, Card cardToRemove)
-        {
-            cards.Remove(cardToRemove);
         }
         public override string ToString()
         {

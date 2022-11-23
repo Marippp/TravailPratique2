@@ -19,18 +19,9 @@ namespace mtg_lite.Models.Zones
         {
             CardAdded += Hand_CardAdded;
         }
-        public void Unsubscribe()
-        {
-            CardRemoved -= Hand_CardRemoved;
-        }
         private void Hand_CardAdded(object? sender, Card cardToAdd)
         {
             cards.Add(cardToAdd);
-        }
-
-        private void Hand_CardRemoved(object? sender, Card cardToRemove)
-        {
-            cards.Remove(cardToRemove);
         }
         public override string ToString()
         {

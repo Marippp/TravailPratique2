@@ -16,7 +16,20 @@ namespace mtg_lite.Models.Zones
         {
             subscribe();
         }
-
+        public override Card TopCard
+        {
+            get
+            {
+                if (cards.Count == 0)
+                {
+                    return new DarkCardBack();
+                }
+                else
+                {
+                    return new CardBack();
+                }
+            }
+        }
         private void subscribe()
         {
             CardAdded += Graveyard_CardAdded;

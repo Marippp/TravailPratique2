@@ -56,10 +56,10 @@ namespace mtg_lite.Controllers
         {
             if (card.GetType() == typeof(Land))
             {
-                player.ManaPool.Add(card.ManaCost);
                 card.Tapped = !card.Tapped;
                 if (card.Tapped)
                 {
+                    player.ManaPool.Add(card.ManaCost);
                     manaPoolUpdated?.Invoke(this, player.ManaPool);
                 }
             }
