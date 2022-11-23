@@ -33,24 +33,23 @@ namespace mtg_lite.Controllers
                 }
                 else
                 {
-                    if ((player.ManaPool >= card.ManaCost) || card.EstPermanent())
+                    if (player.ManaPool >= card.ManaCost)
                     {
+                        player.ManaPool.Pay(card.ManaCost);
+                        manaPoolUpdated?.Invoke(this, player.ManaPool);
                         player.Hand.RemoveCard(card);
                     }
                     else
                     {
                         throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
                     }
-                }
-                
-                
+                }   
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
 
         public void TapCard(Card card)
         {
@@ -63,28 +62,7 @@ namespace mtg_lite.Controllers
                     manaPoolUpdated?.Invoke(this, player.ManaPool);
                 }
             }
-            else
-            {
-                if (!card.Tapped)
-                {
-                    if (player.ManaPool >= card.ManaCost)
-                    {
-                        player.ManaPool.Pay(card.ManaCost);
-                        card.Tapped = !card.Tapped;
-                        manaPoolUpdated?.Invoke(this, player.ManaPool);
-                    }
-                    else
-                    {
-                        throw new Exception("Vous n'avez pas assez de mana pour jouer cette carte.");
-                    }
-                }
-                else
-                {
-                    card.Tapped = false;
-                }
-            }
         }
-
 
         public void DrawCard()
         {
